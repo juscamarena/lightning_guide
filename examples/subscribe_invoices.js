@@ -40,6 +40,7 @@ const { lnrpc } = grpc.loadPackageDefinition(packageDefinition);
 
 
 const lightning = new lnrpc.Lightning(
+    // change to your host
   'validname1233.t.voltageapp.io:10009',
   credentials,
   { 'grpc.max_receive_message_length': 50 * 1024 * 1024 },
