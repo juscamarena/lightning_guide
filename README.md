@@ -20,15 +20,15 @@ Download macaroon from:
   --tlscertpath="" \
   getinfo
 
-# Testnet lightning wallet
+## Testnet lightning wallet
 https://htlc.me/
 
-# Test Lightning Payments
+## Test Lightning Payments
 https://starblocks.acinq.co/
 
-# Node.js api examples
+## Node.js api examples
 /nodejs_examples/*
-# Example mode
+## Example mode
 https://1ml.com/testnet/node/03be4ad3a6eede311d213f8b6c33ffcf00c8d2d424e5875ca4a3f3deff45fcaf1f
 
 Bitcoin Testnet Explorer
@@ -37,3 +37,10 @@ https://blockstream.info/testnet/
 Lightning Testnet Explorer
 https://1ml.com/testnet/search
 
+
+## Learning Resources
+https://github.com/bitcoinbook/bitcoinbook
+https://github.com/lnbook/lnbook
+
+## Liquidity Services
+https://www.bitrefill.com/thor-lightning-network-channels/?hl=en
