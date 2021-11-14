@@ -45,54 +45,18 @@ const lightning = new lnrpc.Lightning(
   { 'grpc.max_receive_message_length': 50 * 1024 * 1024 },
 );
 
-
 let request = { 
-  memo: 'test invoice', 
-  // value: 1, 
-  value_msat: 1000,
+  settle_index: 0,
 }; 
 
-// create invoice
-lightning.addInvoice(request, function(err, response) {
-  if (err) {
-    console.log('error', err);
-  }
-
-  console.log('response', response);
+let call = lightning.subscribeInvoices(request);
+call.on('data', function(response) {
+  // A response was received from the server.
+  console.log(response);
 });
-
-// list channels
-// lightning.listChannels(request, function(err, response) {
-//   if (err) {
-//     console.log('error', err);
-//   }
-
-//   console.log('response', response);
-// });
-
-
-let paymentRequest = {
-  // amt: <int64>,
-  // amt_msat: <int64>,
-  payment_request: 'lntb10m1psezvjcpp52l8shggqvjn656sveq95td9dcd7ajfns3g3x020ek2vr8glm5jfqdqqcqzpgxqyz5vqsp5p78hff2as2rzv6p3a26kp2g077ljt9rfa8l26p605pxsk2d6zzcs9qyyssq9aklsmeytz7796586jc6zmtjy545pw6t2fu5ne8hxe6he9892g2jlxepy7usj9ede84xwetkl7rly9rggyctddh29yjdnagn9g9cvpcq5gpmrj',
-  // fee_limit: <FeeLimit>,
-};
-
-// let call = lightning.sendPayment({});
-
-// call.on('data', function(response) {
-//   // A response was received from the server.
-//   console.log(response);
-// });
-// call.on('status', function(status) {
-//   // The current status of the stream.
-// });
-// call.on('end', function() {
-//   // The server has closed the stream.
-// });
-
-// call.write(paymentRequest);
-
-
-// macaroon expired
-// Error: 2 UNKNOWN: unmarshal v2: field data extends past end of buffer
+call.on('status', function(status) {
+  // The current status of the stream.
+});
+call.on('end', function() {
+  // The server has closed the stream.
+});
